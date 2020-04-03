@@ -63,10 +63,10 @@ const signUp = () => {
   };
 
   return(
-    <section>
-      <h1>Welcome to the sign up process</h1>
-      <p>Please enter your details to create your new profile</p>
-      <form>
+    <section className="body-box pb-4 mx-32 my-4">
+      <h1 className="text-center text-3xl font-bold m-8">Welcome to the sign up process</h1>
+      <p className="text-center text-2xl font-medium m-8">Please enter your details to create your new profile</p>
+      <form className="text-center mt-8 mb-8 m-48 flex flex-col">
         <TextField 
           id="standard-basic" 
           label="First Name" 
@@ -109,9 +109,9 @@ const signUp = () => {
           label="Address"
           onChange={e => onChange(e)} 
         />
-        <button id="Submit">Sign Up</button>
+        <button id="Submit" className="text-center m-8 mb-1 py-2 submit-box">Sign Up</button>
       </form>
-      <p>Already have an account <a href="/">Click here</a></p>
+      <p className="text-center">Already have an account <a href="/" className="text-orange-400">Click here</a></p>
       </section>
   );
 };

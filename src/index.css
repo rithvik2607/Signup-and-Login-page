@@ -10912,6 +10912,18 @@ video {
   transition-duration: 1000ms;
 }
 
+.submit-box {
+  background-color: #F6AD55;
+  box-shadow: 5px 10px 8px #666666;
+  margin-left: 25rem;
+  margin-right: 25rem;
+}
+
+.body-box {
+  box-shadow: 5px 10px 8px #666666;
+  background-color: #667eea;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;
@@ -52143,4 +52155,3 @@ video {
     transition-duration: 1000ms;
   }
 }
-

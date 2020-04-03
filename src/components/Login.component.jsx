@@ -40,10 +40,10 @@ const Login = () => {
   };
 
   return(
-    <section>
-      <h1 className="text-center">Welcome to the login portal</h1>
-      <p className="text-center">Please enter your details to login</p>
-      <form>
+    <section className="body-box pb-4 mx-32">
+      <h1 className="text-center text-3xl font-bold m-8">Welcome to the login portal</h1>
+      <p className="text-center text-2xl font-medium m-8">Please enter your details to login</p>
+      <form className="text-center mt-8 mb-8 m-48 flex flex-col">
         <TextField
           id="standard-basic"
           label="Registration Number"
@@ -60,9 +60,9 @@ const Login = () => {
           label="Password"
           onChange={e => onChange(e)}
         />
-        <button id="Submit">Login</button>
+        <button id="Submit" className="text-center m-8 mb-1 py-2 submit-box">Login</button>
       </form>
-      <p>Don't have an account <a href="/signup">Click here</a></p>
+      <p className="text-center">Don't have an account <a href="/signup" className="text-orange-400">Click here</a></p>
     </section>
   );
 };
