@@ -10924,6 +10924,10 @@ video {
   background-color: #667eea;
 }
 
+.iconButton {
+  display: none;
+}
+
 @media (min-width: 640px) {
   .sm\:sr-only {
     position: absolute;

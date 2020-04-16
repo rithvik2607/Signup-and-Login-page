@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useAlert } from 'react-alert';
 import axios from 'axios';
 import TextField from '@material-ui/core/TextField';
+import PasswordField from 'material-ui-password-field';
 
 const signUp = () => {
   const [userData, setUserData] = useState([
@@ -13,7 +14,7 @@ const signUp = () => {
       regNo:'',
       email:'',
       password:'',
-      block:'',
+      blockDet:'',
       address:'',
       showPassword: false
     }
@@ -36,20 +37,9 @@ const signUp = () => {
     });
   };*/
 
-  const storeData = () => {
-    try{
-      axios.post('https://git.heroku.com/login-page-backend.git/api/user/signup', userData);
-    }
-    catch(error){
-      console.log(error);
-    }
-  }
-
   // to handle submit form cases
   const onSubmit = e => {
     e.preventDefault();
-
-    console.log(userData);
 
     const emptyUserData = {
       firstName:'',
@@ -58,17 +48,19 @@ const signUp = () => {
       regNo:'',
       email:'',
       password:'',
-      block:'',
+      blockDet:'',
       address:''
     };
 
-    axios.post('http://localhost:5000/api/user/signup', userData)
-      .then(() => {
+    console.log(userData);
+
+    axios.post(`http://localhost:5000/api/user/signup`, userData)
+      .then((response) => {
         setUserData(emptyUserData);
       })
       .catch(error =>{
         /*alert.show('Incorrect data entered. Please check your inputs and try again.');*/
-        console.log(error);
+        console.log(error.response);
       });
   };
 
@@ -113,18 +105,18 @@ const signUp = () => {
           value={userData.email}
           onChange={e => onChange(e)} 
         />
-        <TextField 
-          id="standard-basic" 
-          label="Password" 
+        <TextField
+          id="standard-basic"
+          label="Password"
           name="password"
           value={userData.password}
-          onChange={e => onChange(e)} 
+          onChange={e => onChange(e)}
         />
         <TextField 
           id="standard-basic" 
           label="Block" 
           name="block"
-          value={userData.block}
+          value={userData.blockDet} 
           onChange={e => onChange(e)} 
         />
         <TextField multiline 
@@ -135,7 +127,7 @@ const signUp = () => {
           value={userData.address}
           onChange={e => onChange(e)} 
         />
-        <button type="submit" id="Submit" className="text-center m-8 mb-1 py-2 submit-box">Sign Up</button>
+        <button type="submit" id="Submit" className="text-center mb-1 py-2 submit-box md:m-8">Sign Up</button>
       </form>
       <p className="text-center">Already have an account <a href="/" className="text-orange-400">Click here</a></p>
       </section>

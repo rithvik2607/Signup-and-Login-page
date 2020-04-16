@@ -13,3 +13,7 @@
   box-shadow: 5px 10px 8px #666666;
   background-color: #667eea;
 }
+
+.iconButton {
+  display: none;
+}

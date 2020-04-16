@@ -2,27 +2,31 @@ import React, { useState } from 'react';
 import { useAlert } from 'react-alert';
 import axios from 'axios';
 import TextField from '@material-ui/core/TextField';
+import PasswordField from 'material-ui-password-field';
+import { makeStyles } from '@material-ui/core/styles';
 
 const Login = () => {
   const [userData,setUserData] = useState([
     {
-      regNo:'',
-      email:'',
-      password:''
+      regNo: '',
+      email: '',
+      password: ''
     }
   ]);
+
+  const { regNo, email, password } = userData;
 
   /*const alert = useAlert();*/
 
   const onChange = e => {
     setUserData({
-      ...userData,
+      ...userData, 
       [e.target.name]: e.target.value
     });
   };
 
-  const onSubmit = e => {
-    e.preventDefault();
+  const onSubmit = f => {
+    f.preventDefault();
 
     const emptyLoginData = {
       regNo:'',
@@ -30,15 +34,14 @@ const Login = () => {
       password:''
     };
 
-    console.log(userData);
-
-    axios.post('http://localhost:5000/api/user/login', userData)
-      .then(() => {
+    axios.post(`http://localhost:5000/api/user/login`, userData)
+      .then((response) => {
         setUserData(emptyLoginData);
+        console.log(userData);
       })
       .catch(error =>{
         /*alert.show('Incorrect data entered. Please check your inputs and try again.');*/
-        console.log(error);
+        console.log(error.response);
       });
   };
 
@@ -69,7 +72,7 @@ const Login = () => {
           value={userData.password}
           onChange={e => onChange(e)}
         />
-        <button type="submit" id="Submit" className="text-center m-8 mb-1 py-2 submit-box">Login</button>
+        <button type="submit" id="Submit" className="text-center mb-1 py-2 submit-box md:m-8">Login</button>
       </form>
       <p className="text-center">Don't have an account <a href="/signup" className="text-orange-400">Click here</a></p>
     </section>
