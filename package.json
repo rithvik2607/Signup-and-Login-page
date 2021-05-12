@@ -16,7 +16,7 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.21.1",
     "material-ui-password-field": "^2.1.1",
-    "postcss": "^7.0.27",
+    "postcss": "^8.2.10",
     "postcss-cli": "^7.1.0",
     "react": "^16.13.1",
     "react-alert": "^7.0.0",
